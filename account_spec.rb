@@ -9,6 +9,10 @@ describe Account do
     it "creates an Account object" do
       account.should be_an_instance_of Account
     end
+
+    it "should raise error if account number not numeric" do
+      expect{ Account.new("Ponies") }.to raise_error(InvalidAccountNumberError)
+    end
   end
 
   describe "#transactions" do
@@ -35,10 +39,12 @@ describe Account do
   end
 
   describe "deposit!" do
-  
+    it "should raise an error if deposit amount is negative" do
+      expect{ account.deposit!(-1) }.to raise_error(NegativeDepositError)
+    end
   end
 
-  describe "#withdraw!" do
+  describe "withdraw!" do
 
   end
 end
