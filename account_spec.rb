@@ -30,8 +30,8 @@ describe Account do
 
   describe "#balance" do
     it "shiould return sum of transactions" do
-      account.stub(:transactions => [200, 100])
-      expect(account.balance).to eq 300
+     account.stub(:transactions => [10000, 200, -5000])
+     expect(account.balance).to eq 5200
     end
   end
 
